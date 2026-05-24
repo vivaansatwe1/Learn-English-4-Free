@@ -1,11 +1,10 @@
-// Comprehensive Age-Group Lessons Data Structure
 const data = {
   "5-10": {
     title: "The Big Yellow School Bus 🚌",
     story: "Max is 7 years old. Today is his first day of school in America. He sees a big yellow bus. The friendly bus driver smiles and says: 'Good morning! Please take a seat.' Max smiles back and finds a seat near his new friend.",
     question: "What color is the school bus in the story?",
     options: ["Blue", "Yellow", "Red"],
-    correct: 1 // Yellow
+    correct: 1
   },
   "11-13": {
     title: "Joining the Soccer Team ⚽",
@@ -44,24 +43,20 @@ const data = {
   }
 };
 
-// App Navigation Logic
 function selectAge(group) {
   document.getElementById('age-screen').classList.add('hidden');
   document.getElementById('lesson-screen').classList.remove('hidden');
 
-  // Load Content
   const dataSet = data[group];
   document.getElementById('age-badge').textContent = `Age Group: ${group}`;
   document.getElementById('lesson-title').textContent = dataSet.title;
   document.getElementById('lesson-story').textContent = dataSet.story;
   document.getElementById('quiz-question').textContent = dataSet.question;
 
-  // Clear previous buttons and feedback
   const optionsContainer = document.getElementById('quiz-options');
   optionsContainer.innerHTML = '';
   document.getElementById('feedback').classList.add('hidden');
 
-  // Render options dynamically
   dataSet.options.forEach((option, index) => {
     const button = document.createElement('button');
     button.className = 'option-btn';
