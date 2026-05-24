@@ -1,60 +1,55 @@
-// Vocabulary Database
-const phrases = [
-  { english: '"How\'s it going?"', meaning: '"How are you doing?" / "How is your day?"', category: "Greeting" },
-  { english: '"Excuse me, where is the bus stop?"', meaning: "Asking for public transportation assistance.", category: "Travel" },
-  { english: '"Can you repeat that slowly, please?"', meaning: "Asking someone to speak slower so you can understand.", category: "Learning" },
-  { english: '"Where is the nearest grocery store?"', meaning: "Asking where to buy food and groceries.", category: "Daily Life" }
-];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>US English Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-let currentIndex = 0;
+  <main class="app-container">
+    <header class="header">
+      <h1>US English Academy 🇺🇸</h1>
+      <p class="subtitle">Learn English through stories and fun quizzes!</p>
+    </header>
 
-const flashcard = document.getElementById('flashcard');
-const englishDisplay = document.getElementById('english-phrase');
-const meaningDisplay = document.getElementById('translation');
-const categoryDisplay = document.querySelector('.card-front .category');
-const nextBtn = document.getElementById('next-btn');
-const themeToggle = document.getElementById('theme-toggle');
+    <section id="age-screen" class="section">
+      <h3>Select Your Age Group to Start:</h3>
+      <div class="age-grid">
+        <button class="age-btn" onclick="selectAge('5-10')">Ages 5 - 10 🧸</button>
+        <button class="age-btn" onclick="selectAge('11-13')">Ages 11 - 13 🎒</button>
+        <button class="age-btn" onclick="selectAge('14-16')">Ages 14 - 16 🛹</button>
+        <button class="age-btn" onclick="selectAge('17-19')">Ages 17 - 19 🎓</button>
+        <button class="age-btn" onclick="selectAge('20-30')">Ages 20 - 30 💼</button>
+        <button class="age-btn" onclick="selectAge('30+')">Ages 30+ 🌟</button>
+      </div>
+    </section>
 
-// Flip Flashcard logic
-flashcard.addEventListener('click', () => {
-  flashcard.classList.toggle('flipped');
-});
+    <section id="lesson-screen" class="section hidden">
+      <button class="back-btn" onclick="goBack()">⬅️ Change Age Group</button>
+      
+      <div class="lesson-card">
+        <span class="badge" id="age-badge">Ages 5-10</span>
+        <h2 id="lesson-title">Loading Lesson...</h2>
+        
+        <div class="story-box">
+          <p id="lesson-story">Loading story...</p>
+        </div>
+      </div>
 
-// Next Phrase logic
-nextBtn.addEventListener('click', () => {
-  flashcard.classList.remove('flipped');
-  
-  // Wait slightly for the card to flip back before changing text
-  setTimeout(() => {
-    currentIndex = (currentIndex + 1) % phrases.length;
-    categoryDisplay.textContent = phrases[currentIndex].category;
-    englishDisplay.textContent = phrases[currentIndex].english;
-    meaningDisplay.textContent = phrases[currentIndex].meaning;
-  }, 200);
-});
+      <div class="quiz-card">
+        <h3>Practice Question:</h3>
+        <p id="quiz-question">Loading question...</p>
+        <div id="quiz-options" class="options-container"></div>
+        <p id="feedback" class="feedback hidden"></p>
+      </div>
+    </section>
+  </main>
 
-// Interactive Quiz Logic
-function checkAnswer(isCorrect) {
-  const feedback = document.getElementById('quiz-feedback');
-  feedback.classList.remove('hidden');
-  
-  if (isCorrect) {
-    feedback.textContent = "🎉 Correct! Great job!";
-    feedback.style.color = "#10b981"; // Green color
-  } else {
-    feedback.textContent = "❌ Try again! Hint: It relates to shopping or stores.";
-    feedback.style.color = "#ef4444"; // Red color
-  }
-}
-
-// Dark Mode Toggle Logic
-themeToggle.addEventListener('click', () => {
-  const currentTheme = document.documentElement.getAttribute('data-theme');
-  if (currentTheme === 'dark') {
-    document.documentElement.setAttribute('data-theme', 'light');
-    themeToggle.textContent = '🌙';
-  } else {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    themeToggle.textContent = '☀️';
-  }
-});
+  <script src="script.js"></script>
+</body>
+</html>
