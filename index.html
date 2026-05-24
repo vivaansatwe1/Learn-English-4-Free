@@ -7,7 +7,7 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght=400;600;700;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -16,9 +16,6 @@
   <nav class="duo-nav">
     <div class="nav-container">
       <span class="logo">LingoUSA 🇺🇸</span>
-      <div class="streak-container">
-        <span>🔥 1 Day Streak</span>
-      </div>
     </div>
   </nav>
 
@@ -27,42 +24,42 @@
     <section id="age-screen" class="dashboard-section">
       <h2 class="section-title">Choose your learning path:</h2>
       <div class="age-list">
-        <button class="path-card" onclick="startPath('5-10')">
+        <button class="path-card" onclick="selectAge('5-10')">
           <span class="path-emoji">🧸</span>
           <div class="path-info">
             <h3>Ages 5 - 10</h3>
             <p>Fun, elementary vocabulary & basic sentence structures.</p>
           </div>
         </button>
-        <button class="path-card" onclick="startPath('11-13')">
+        <button class="path-card" onclick="selectAge('11-13')">
           <span class="path-emoji">🎒</span>
           <div class="path-info">
             <h3>Ages 11 - 13</h3>
             <p>School life, intermediate idioms, and context clues.</p>
           </div>
         </button>
-        <button class="path-card" onclick="startPath('14-16')">
+        <button class="path-card" onclick="selectAge('14-16')">
           <span class="path-emoji">🛹</span>
           <div class="path-info">
             <h3>Ages 14 - 16</h3>
             <p>High school navigation, casual slang, and social dynamics.</p>
           </div>
         </button>
-        <button class="path-card" onclick="startPath('17-19')">
+        <button class="path-card" onclick="selectAge('17-19')">
           <span class="path-emoji">🎓</span>
           <div class="path-info">
             <h3>Ages 17 - 19</h3>
             <p>Higher education, banking, and academic transitions.</p>
           </div>
         </button>
-        <button class="path-card" onclick="startPath('20-30')">
+        <button class="path-card" onclick="selectAge('20-30')">
           <span class="path-emoji">💼</span>
           <div class="path-info">
             <h3>Ages 20 - 30</h3>
             <p>Career networking, professional communication, and interviews.</p>
           </div>
         </button>
-        <button class="path-card" onclick="startPath('30+')">
+        <button class="path-card" onclick="selectAge('30+')">
           <span class="path-emoji">🌟</span>
           <div class="path-info">
             <h3>Ages 30+</h3>
@@ -86,15 +83,13 @@
           <div class="panel-tag" id="level-badge">AGES 5-10</div>
           <h2 id="story-title" class="story-title">Story Loading...</h2>
           <div class="hint-alert">💡 Tap the <strong>blue underlined</strong> words to hear pronunciation, definition, and origin!</div>
-          <div id="story-body" class="story-passage">
-            </div>
+          <div id="story-body" class="story-passage"></div>
         </div>
 
         <div class="quiz-panel">
           <h3 class="quiz-heading">Check your understanding:</h3>
           <p id="quiz-prompt" class="quiz-prompt">Question loading...</p>
-          <div id="quiz-options" class="options-stack">
-            </div>
+          <div id="quiz-options" class="options-stack"></div>
         </div>
       </div>
 
